@@ -2,3 +2,15 @@
 {
   direction:rtl;
 }
+
+#nav{
+    margin-top: 50px;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;  
+     background-color: wheat ;
+}
+.nav1{
+    padding: 10px;
+    margin: 7px;
+}

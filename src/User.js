@@ -1,5 +1,5 @@
 import React from "react";
-import "./Login.css";
+import "./User.css";
 
 export default class Login extends React.Component {
 
@@ -34,7 +34,10 @@ export default class Login extends React.Component {
     changeHouseNumber = (e) => {
         this.houseNumber=(e.target.value);
     }
-    checkPassword = () => {
+    checkPassword = (eemail,password) => {
+     
+
+        
     }
     render() {
 
@@ -56,12 +59,12 @@ export default class Login extends React.Component {
 
                 <h3>יצירת סיסמא:</h3>
                 <input type="email" placeholder="כתובת אימייל" onKeyUp={this.changeEmail}/><br/>
+
                {/*צורך בבדיקות תקינות לסיסמא*/}
                 <input type="text" placeholder="הכנס סיסמא"  onKeyUp={this.checkPassword}/><br/>
-                <input type="button" value="הרשם"  onClick={this.Login}/>
-                {/* <img src={product.jpeg}/> */}
-                </form>
+                <input type="submit" value="הרשם" onClick={() => { this.checkPassword(this.email,this.password) }}/> 
 
+                </form>
             </div>
         );
     }
