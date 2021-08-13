@@ -1,6 +1,6 @@
 import React from "react";
 import "./User.css";
-import image from "./images/p.jpg";
+
 export default class Login extends React.Component {
 
     // satate ??? האם יש צורך ב 
@@ -12,6 +12,7 @@ export default class Login extends React.Component {
     address="";
     houseNumber=0;
     //city="";--נפתח גולל של ערים
+    //bornDate="";--פתח יומן לבחירת יום חודש ותאריך
     changeFirstName = (e) => {
         this.firstName=(e.target.value);
     }
@@ -33,8 +34,10 @@ export default class Login extends React.Component {
     changeHouseNumber = (e) => {
         this.houseNumber=(e.target.value);
     }
-    checkPassword = (email,password) => {
-          
+    checkPassword = (eemail,password) => {
+     
+
+        
     }
     render() {
 
@@ -48,7 +51,8 @@ export default class Login extends React.Component {
 
                 <form>
                 <h3>פרטי משתמש</h3>
-            
+               
+                     
                 <input   placeholder="שם פרטי"  onKeyUp={this.changeFirstName}/>
                 <input type="text" placeholder="שם משפחה" onKeyUp={this.changeLastName}/><br/>
                
