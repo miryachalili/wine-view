@@ -1,36 +1,16 @@
 #app
 {
   direction:rtl;
-
 }
 
 #nav{
-  background-color:rgb(196, 193, 193);
-    margin-top: 8%;
+    margin-top: 50px;
     width: 100%;
     display: -webkit-box;
-    -webkit-box-orient:horizontal;
-    text-align: center;
-    overflow: hidden;
-  }
+    -webkit-box-orient: horizontal;  
+     background-color: wheat ;
+}
 .nav1{
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size:25px;
-    margin-left: 3%;
-   text-align:center ;
-   padding: 14px 16px;
-   text-decoration:none;
-   
-   color: black;
+    padding: 10px;
+    margin: 7px;
 }
-body{
-  background-color: white;
-}
-li{list-style-type: none; float: left;}
-.nav1:hover{
-  background-color: darkgrey;
-}
-
-  
-  
-p{float: inherit;}
