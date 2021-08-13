@@ -1,7 +1,9 @@
 #app
 {
   direction:rtl;
+
 }
+
 #nav{
   background-color:rgb(196, 193, 193);
     margin-top: 8%;
@@ -24,50 +26,39 @@
 body{
   background-color: white;
 }
-li{
-  list-style-type: none;
-   float: left;
-   outline: none;
-   text-decoration: none;
-   color: tomato;
-  }
-
+li{list-style-type: none; float: left;}
 .nav1:hover{
   background-color: darkgrey;
 }
-#header{
-  display: flex;
-  margin-top: 10px;
 
-}
+ 
 .search {
+  
    display: flex;
+   width: 30%;
    height: 50px;
    border-radius: 50px;
    border: 1px solid;
    position: relative;
-   width: 30%;
-   margin-top: 25px;
-
+   margin-right: 45%;
+   margin-top: 15px;
+   
 } 
 .search input {
+  
+  -webkit--highlight-color:white;
+  width: 80%;
     border: none;
-    width: 70%;
+    line-height: 21px;
     padding-right: 20px;
     border-radius:0%;
     font-size: 16px;
+    font-weight: 400;
     color: rbga(0,0,0,1);
     font-family: assistant,helvetica,sans-serif;
     outline: none;
   }
- .search i{
-  margin-top: 15px;
- }
-  #header img{
-   width: 8%;
-   height: 8%;
- } 
-  
+
 #endPage
 {
   color: white;
