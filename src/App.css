@@ -31,6 +31,42 @@ li{list-style-type: none; float: left;}
   background-color: darkgrey;
 }
 
+ 
+.search {
   
+   display: flex;
+   width: 30%;
+   height: 50px;
+   border-radius: 50px;
+   border: 1px solid;
+   position: relative;
+   margin-right: 45%;
+   margin-top: 15px;
+   
+} 
+.search input {
   
-p{float: inherit;}
+  -webkit--highlight-color:white;
+  width: 80%;
+    border: none;
+    line-height: 21px;
+    padding-right: 20px;
+    border-radius:0%;
+    font-size: 16px;
+    font-weight: 400;
+    color: rbga(0,0,0,1);
+    font-family: assistant,helvetica,sans-serif;
+    outline: none;
+  }
+
+#endPage
+{
+  color: white;
+  height:  50%;
+  display: block;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  margin-top: 50%;
+  background-color: black;
+}
