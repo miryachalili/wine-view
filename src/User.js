@@ -1,6 +1,6 @@
 import React from "react";
 import "./User.css";
-// import axios  from "axios";
+ import axios  from "axios";
 // import image from "./images/p.jpg";
 export default class Login extends React.Component {
     state = {
@@ -90,7 +90,13 @@ validForm=()=>{
      return valid;
     }
     checkPassword = (event) => {
-      event.preventDefault()   
+      event.preventDefault();
+      const data={};
+      for (let x in this.state.form) {
+        data[x]=this.state.form[x].value    
+         } 
+       
+    axios.post(`http://localhost:62979/api/users`,data)
     }
     change=(event,key)=>{
         const form={...this.state.form};
