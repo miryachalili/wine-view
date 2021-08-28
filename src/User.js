@@ -65,7 +65,7 @@ export default class Login extends React.Component {
         },
         validForm:false
     }
-validForm=()=>{
+validForm=()=>{  
     let validForm=true;
     for(let i in this.state.form){
         validForm=validForm&&this.state.form[i].valid
