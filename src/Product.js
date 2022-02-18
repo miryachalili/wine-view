@@ -1,40 +1,50 @@
-import React, { useState, } from "react";
+import React from "react";
 import axios from "axios";
 import { withRouter } from 'react-router-dom'
 
+import ShowProduct from './showProduc'
+
+import './Product.css'
 class Product extends React.Component {
 
     state = {
-        products: [],
+       
         urlNumber: 4,
         file:null,
-        imageSow:[]
+        imageSow:[],
+        productMinPrice:0,
+        productMaxPrice:0,
+        Text:"",
+        IsSale:false
     }
     componentDidUpdate() {
         if (this.state.urlNumber !== this.props.match.params.id) {
             this.setState({ urlNumber: this.props.match.params.id })
-            this.getProudct()
+            this.getProudct(this.props.match.params.id)
         }
     }
-    getProudct = () => {
-        axios.get(`http://localhost:62979/api/Products?number=${this.state.urlNumber}`).then(x => {
-            console.log(x.data)
-          //  alert(x.data.length);
-            this.setState({ products: x.data })
-
+    getProudct = (urlNumber) => {
+        axios.get(`http://localhost:62979/api/Products?number=${urlNumber}`).then(x => {
+            console.log(x.data,"getProudct")
+            var list= JSON.parse(localStorage.getItem("order")) //קבלת המוצרים בצורת מחרוזת וממיר לאובייקט
+            list?.forEach(element => {
+             if( x.data.find(x=>x.Id==element.ptoId))
+              x.data.find(x=>x.Id==element.ptoId).qentity=element.qentity;
+           });   
+            this.props.setProductsShow( x.data)
+            /// לעדכן את כל הרשימה של המוצרים עם הם קיימים בסל
         }).catch(x => { console.log(x) }).finally(() => { });
+       
+       
     }
 
-    componentDidMount() {
-        // const number = this.props.match.params.id;
-        this.setState({ urlNumber: this.props.match.params.id })
-        //     console.log(  this.props.match.params.id )
-        //   console.log(  this.props)
-        this.getProudct()
-       }       
-       
-       setFile =(e)=>{
 
+
+    componentDidMount() {
+        this.setState({ urlNumber: this.props.match.params.id })
+        this.getProudct(this.props.match.params.id)
+       }       
+    setFile =(e)=>{
           this.setState( {file:e.target.files[0]});
         }
     sendFile=()=>{
@@ -43,7 +53,7 @@ class Product extends React.Component {
            }
         let data = new FormData();
         data.append('image', this.state.file);
-        axios.post("http://localhost:62979/api/Image?id=6",data,config).then(x=>{
+        axios.post("http://localhost:62979/api/Image?id=7",data,config).then(x=>{
         console.log(x) ;
                this.setState({imageSow:x.data})
         })
@@ -51,21 +61,55 @@ class Product extends React.Component {
     }
     render() {
 
-        return (<>
-            <h3>product</h3>
-            {this.state.products.map(x => <div key={x.Id}>{x.Description}
-                <img src={`data:image/jpeg;base64,${x.img}`} /> 
-            </div>)}
-            <input type="file" onChange={e =>this.setFile(e)}/>
+        return (<div>  
+           <input type="file" onChange={e =>this.setFile(e)}/>
             <img src={`data:image/jpeg;base64,${this.state.imageSow}`} /> 
-<button onClick={this.sendFile} />
-            {/* <div>
-                {
-               this.state.arr.map((item, index) => {
-                         return <Square key={index} ind={index} myContent={item} toggloFunc={this.toggle} />;
-                    })}
-            </div> */}
-        </>
+            <button onClick={this.sendFile} /> 
+            <h3>product</h3>
+            <div className="warpper">
+            {this.props.productsShow.map(x =>{
+            if( (!this.state.productMaxPrice|| x.Price<this.state.productMaxPrice)&&
+            (!this.state.productMinPrice|| x.Price>this.state.productMinPrice)&&
+            (!this.state.Text|| x.Name.toLowerCase().includes(this.state.Text.toLowerCase())
+            // (!this.state.IsSale)
+            ))
+            {
+            return <div key={x.Id} className="card"> 
+            {/* {x.qentity} */}
+            <ShowProduct addToOrder={this.props.addToOrder} product={x}/>
+    {/* <Card >
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="100%"
+          width="20px"
+          image={`data:image/jpeg;base64,${x.img}`}
+        />
+        {/* <CardContent> 
+          <Typography gutterBottom variant="h5" component="h2">
+            {x.Name}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          {x.Price}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          {x.Description}
+          </Typography>
+        {/* </CardContent> 
+      </CardActionArea>
+      <CardActions>
+         {!x.qentity?<Button size="small" color="primary" onClick={()=>{this.props.addToOrder(x.Id,1)}}>
+         הוסף לסל
+        </Button>:(
+        <><Button size="small" color="primary" onClick={() => { this.props.addToOrder(x.Id, -1); } }>
+                        הורד </Button><Button size="small" color="primary" onClick={() => { this.props.addToOrder(x.Id, 1); } }>
+                          הוסף </Button></>  )}
+      </CardActions>
+      </Card>  */}
+      </div>
+    }})}
+      </div>
+      </div>
         );
     }
 

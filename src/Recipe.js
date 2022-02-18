@@ -1,80 +1,70 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Recipe.css";
-import { withRouter } from 'react-router-dom'
-import {Link} from "react-router-dom";
-
+import { Link, withRouter } from 'react-router-dom'
 import axios from "axios";
-//להכניס לsql;
-import img1 from './images/בשרי.jpg';
-import img2 from './images/חלבי.jpg';
-import img3 from './images/פרווה.jpg';
-import img4 from './images/קינוח.jpg';
-
+import img1 from './images/בשרי.png';
+import img2 from './images/חלבי.png';
+import img3 from './images/פרווה.png';
+import img4 from './images/קינוח.png';
+import img5 from './images/ספרמתכונים.png';
 import SimpleImageSlider from "react-simple-image-slider";
 
  class Recipe extends React.Component {
   state = {
     recipes: [],
-    urlNumber: 1
+    urlNumber: 0,
+    images :[]
   }
   componentDidUpdate() {
     if (this.state.urlNumber !== this.props.match.params.id) {
-      this.setState({ urlNumber: this.props.match.params.id })
-      this.getRecipes()
+      this.setState({ urlNumber: this.props.match.params.id ,images:[]}) 
+      this.getRecipes(this.props.match.params.id,this.state.images) 
     }
   }
-  getRecipes= () => {
-    axios.get(`http://localhost:62979/api/Recipes?number=${this.state.urlNumber}`).then(x => {
-      alert(x.data.length);
-      this.setState({ recipes: x.data })
-
+  getRecipes= (number) => {   
+    axios.get(`http://localhost:62979/api/Recipe?number=${number}`).then(x => {
+      console.log(x)
+      const images=[];
+      x.data.forEach(x => { images.push( {url:'../images/'+x.ImageUrl})})
+      console.log(images)
+      this.setState({ recipes: x.data,images:images })   
     }).catch(x => { console.log(x) }).finally(() => { });
   }
-
   componentDidMount() {
-    const number = this.props.match.params.id;
-    this.setState({ urlNumber: this.props.match.params.id })
-    this.getRecipes()
-   
+    this.setState({ urlNumber: this.props.match.params.id }) 
+    this.getRecipes(this.props.match.params.id)
+
   }
   render() {
-    const images = [
-      { url: "http://localhost:3000/static/media/%D7%91%D7%A9%D7%A8%D7%99.bf2b288e.jpg" },
-      { url: "http://localhost:3000/static/media/%D7%97%D7%9C%D7%91%D7%99.da0929f3.jpg" },
-      { url: "http://localhost:3000/static/media/%D7%A4%D7%A8%D7%95%D7%95%D7%94.651a5036.jpg" },
-      { url: "http://localhost:3000/static/media/%D7%A7%D7%99%D7%A0%D7%95%D7%97.7fcd6008.jpg" },
-    ];
-
     return (
       <div>
-        <div className="listRecipe">
-          <div>
-            <img src={img1} onClick={()=>{this.props.history.push("2")}}></img>
-             {/* <div><Link  to="/recipe/1">למתכונים הבשריים</Link></div> */}
-            <img src={img2}></img> 
-            {/* <div><Link  to="/recipe/1">למתכונים חלביים</Link></div> */}
-
-          </div>
-        
-          <div>
-            <img src={img3}></img>
-            <img src={img4}></img>
-            </div>
-        </div>
-        <div className="silderRecipe">
+      <div className="recipeFile">
+         < div className="silderRecipe">
+         {this.state.images&&this.state.images.length?
           <SimpleImageSlider
-            width={500}
-            height={420}
-            style={{ margin: '0 auto', marginTop: '20px' }}
-            images={images}
+            width={600}
+            height={400}
+            // style={{ direction: 'rtl' }}
+            images={this.state.images}
             showBullets={true}
-            showNavs={true} />
+            showNavs={true} 
+            />:<img src={img5}/>}
         </div>
-
-
+        <div className="listRecipe">
+           <Link className="link" to="/recipe/1"> <img src={img1} ></img>
+             למתכונים הבשריים</Link>
+             <Link className="link" to="/recipe/2"> <img src={img2} onClick={()=>{ this.props.history.push("2") }}></img> 
+            למתכונים החלביים</Link>
+            <Link className="link" to="/recipe/3">  <img src={img3}onClick={()=>{this.props.history.push("3")}}></img>
+            למתכונים הפרווה</Link>
+            <Link className="link" to="/recipe/4">  <img src={img4}onClick={()=>{this.props.history.push("4")}}></img>
+         לקינוחי היין</Link>
+       </div>
+     
+        </div>
+    
       </div>
     );
   }
-
 }
 export default withRouter(Recipe)

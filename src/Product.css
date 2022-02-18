@@ -7,3 +7,11 @@
     height: 100px;
     padding: 15px;
 }
+.warpper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.warpper>.card{
+width: 25%;
+display: inline;
+}

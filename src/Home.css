@@ -1,0 +1,182 @@
+body{
+    direction: rtl;
+}
+.recomendedFilter{
+    transform: translateY(-130px);
+    margin-bottom: -80px;
+    position: relative;
+    z-index: 11;
+    width: 50%;
+    padding-left: 50px; 
+    padding-right: 50px;
+    
+}
+div {
+    display: block;
+}
+.recomendedFilter .recNav{
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+.recomendedFilter .recNav .filtersSelector {
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+.recomendedFilter .recNav .filtersSelector .button.active {
+    background-color: #fff;
+    color: #000;
+}
+.recomendedFilter .recNav .filtersSelector .button:hover {background-color:rgb(143, 74, 74);}
+
+.recomendedFilter .recNav .filtersSelector .button {
+    cursor: pointer;
+    padding: 15px 20px;
+    font-size: 20px;
+    background-color: #891826;
+    color: #fff;
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+.recomendedFilter .recNav .filtersSelector .button.active {
+    background-color: #fff;
+    color: #000;
+}
+.recomendedFilter .recContent {
+    background-color: #fff;
+    box-shadow: 0 10px 10px rgb(0 0 0 / 18%);
+    padding-top: 30px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 20px;}
+.recomendedFilter .recContent form {
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.recomendedFilter .recContent .column:nth-child(1) {
+    width: 15%;
+}
+
+.recomendedFilter .recContent .column .wineTypes {
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.recomendedFilter .recContent .column {
+    width: 100%!important;
+    border-width: 0;
+    border-bottom: 1px solid #eee;
+
+}
+.recomendedFilter .recContent .column .wineTypes .current {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+}
+
+
+.recomendedFilter .recContent .column .wineTypes .dropDown {
+    /* להחליף לnone */
+    display: none;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%) translateX(-50.3%);
+    left: 58%;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 6px 6px rgb(0 0 0 / 16%);
+}
+    .recomendedFilter .recContent .column .wineTypes .dropDown li {
+    padding: 7px 0;
+    margin: 0 30px;
+    border-top: 1px solid #ededed;
+    min-width: 101px;
+    cursor: pointer;
+    color: #777;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+}
+.recomendedFilter .recContent .column .wineTypes .dropDown li:hover {
+    background-color:rgb(209, 203, 203) ;
+}
+p{
+    text-align: center;
+}
+.recomendedFilter .recContent .column  .amountTotal {
+    margin-bottom: 20px;
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+}
+.recomendedFilter .recContent .column  .amountTotal input{ display: block;
+    width: 50%;
+    border: none;
+    margin: 0;
+    text-align: left;
+    padding: 0;
+    color: #3a3636;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;}
+    label{
+        text-align: center;
+    }
+    .recomendedFilter .recContent .column  .amountTotal input:nth-child(1){ text-align: right;}
+    .recomendedFilter .recContent .column .searchButton{
+        background-color: #891826;
+          font-size: 20px;
+          padding-top: 30px;
+          padding-right: 30px;
+          padding-bottom: 30px;
+          padding-left: 30px;
+          color: #fff;
+          outline: none;
+          border: none;
+          border-radius: 10px;
+          margin-right: 10px;
+          margin-top: 22px;          
+
+}
+.recomendedFilter .recContent .column:nth-child(3) {
+    width: 15%;
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.recomendedFilter .recContent .column:nth-child(4) {
+    width: 10%;
+}
+ol, ul {
+    list-style: none;
+}
+
+ #rotatingImg img{
+    width: 100%;
+    height:350px ;
+    
+  }
