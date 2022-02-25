@@ -34,13 +34,13 @@ export default class Questionnaire extends React.Component {
                  qs.splice(5,1)
                  this.setState({selectProduuct:4})}
         } 
-lastPoint.push(count)
+      lastPoint.push(count)
         
-this.setState({point:this.state.point+count,
-    lastPoint:lastPoint,
-    qs:qs,
-    indexQestion:this.state.indexQestion+1
-})
+        this.setState({point:this.state.point+count,
+        lastPoint:lastPoint,
+        qs:qs,
+        indexQestion:this.state.indexQestion+1
+    })
     } 
     prevQestion=()=>{
         

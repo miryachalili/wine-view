@@ -56,7 +56,7 @@ const getOrdersSowe = () => {
     if(d.qentity>0)
     arr.push(d)
     }
-  });
+ });
   setOrdersShow(arr)
 
 }
