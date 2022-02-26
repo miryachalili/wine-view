@@ -1,0 +1,35 @@
+.question-page{
+    margin-bottom: 52px;
+    margin-right: 5%;
+}
+.point{
+    display: flex;
+    margin-right: 12px;
+}
+h2{
+    margin: 6px;
+}
+.question{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+p{
+    padding: 0px;
+    margin: 3px 20px;
+    font-size: 17px;
+    text-align: start;
+}
+.q-btn{
+    background-color: white;
+    margin: 10px;
+}
+.q-btn button{
+    background-color: white;
+    border-color: #3a3636;
+}
+.return-btn{
+    margin: 12px;
+}

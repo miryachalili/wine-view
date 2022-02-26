@@ -10,8 +10,10 @@
 .warpper{
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 52px;
 }
 .warpper>.card{
 width: 25%;
+/* max-height: 100px; */
 display: inline;
 }

@@ -3,25 +3,29 @@ body
   direction:rtl;
 }
 #nav{
-  background-color:rgb(214, 212, 212);
-    margin-top: 1%;
-    width: 100%;
-    display: -webkit-box;
-    -webkit-box-orient:horizontal;
-    text-align: center;
-    overflow: hidden;
-    margin-bottom: 0%;
+  background-color: #989292;
+  /* background-color:rgb(214, 212, 212); */
+  border-top: 4px solid #891826;
+  margin-top: 1%;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient:horizontal;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 0%;
   }
   
 .nav1{
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size:25px;
-    margin-left: 3%;
-   text-align:center ;
-   padding: 14px 16px;
-   text-decoration:none;
-   color: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 25px;
+  /* margin-left: 3%; */
+  margin: 0% 5%;
+  text-align: center;
+  padding: 14px 0px;
+  text-decoration: none;
+  color: black;
 }
+
 body{
   background-color: white;
 }
@@ -33,24 +37,126 @@ li{
    color: tomato;
    
   }
-
+ .nav1 ul{
+  display: none;
+  /* display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: white;
+  background-color:rgb(214, 212, 212);
+  align-items: flex-start;
+  padding: 0px 6px; */
+}
+.nav1 .link{
+  text-decoration:none;
+  color:black;
+}
 .nav1:hover{
-  background-color: darkgrey;
+  color: white;
+
+}
+.nav1:hover .link{
+  text-decoration:none;
+  color:white;
+}
+.nav1:hover ul{
+  display: flex;
+    flex-direction: column;
+    position: absolute;
+    color: white;
+    /* background-color: rgb(214, 212, 212); */
+    background-color: #989292;
+    align-items: flex-start;
+    padding: 12px 15px;
+    z-index: 200;
 }
 #header{
   display: flex;
   margin-top: 10px;
-
+  align-items: center;
+  justify-content: space-around;
 }
+.card-icon{
+  cursor: pointer;
+}
+.card-icon:hover{
+  padding: 11px 14px;
+  border-radius: 50%;
+  background-color: #989292;
+}
+.login{
+  cursor: pointer;
+}
+.login-btn{
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 0px;
+  font-size: 16px;
+}
+.comment__bubble input{
+  border-bottom-width: 5px;
+  border-bottom-color: #891826;
+  border-style: solid;
+  width: 60%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 10px;
+  direction: rtl;
+}
+
+.btn-login{
+  margin: 10px;
+}
+.link-sign-in{
+  display: flex;
+    justify-content: flex-end;
+}
+.close{
+  display: flex;
+  align-items: center;
+}
+.comment__bubble {
+  width: 25%;
+  z-index: 1;
+  max-height: 55%;
+  transform: translate(-214%, -5px);
+  position: absolute;
+  padding: 24px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  display: flex;
+  background-color: white;
+  border: 1px solid #989292;
+  flex-direction: column;
+}
+.comment__bubble.arrow:before {
+  margin-left: -20px;
+  border: 1px solid;
+  border-width: 20px 0 0 20px !important;
+  border-color: transparent transparent transparent #989292 !important;
+}
+  .comment__bubble.arrow:after {
+    margin-left: -19px;
+    border-width: 18px 0 0 18px !important;
+    border-color: transparent transparent transparent #fff !important;
+  }
+  .comment__bubble.arrow:after, .comment__bubble.arrow:before {
+      bottom: 100%;
+      left: 10%;
+      border:2px solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+  }
 .search {
    display: flex;
-   height: 50px;
+   height: 40px;
    border-radius: 50px;
    border: 1px solid;
    position: relative;
-   width: 30%;
-   margin-top: 25px;
-
+   width: 23%;
 } 
 .search input {
     border: none;
@@ -65,15 +171,15 @@ li{
   margin-top: 15px;
  }
  #header #logo img{
-   width: 25%;
+   width: 100px;
    height: 100px;
  } 
  #logo{
-   width: 50%;
-   margin-right: 1%;
+      width: 150px;
+      margin: 0px 1%;
  }
 
 .linkall{
   text-decoration:none;
-  color:black
+  color:black;
 }

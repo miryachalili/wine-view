@@ -26,7 +26,6 @@ import SimpleImageSlider from "react-simple-image-slider";
       console.log(x)
       const images=[];
       x.data.forEach(x => { images.push( {url:'../images/'+x.ImageUrl})})
-      console.log(images)
       this.setState({ recipes: x.data,images:images })   
     }).catch(x => { console.log(x) }).finally(() => { });
   }
@@ -42,8 +41,8 @@ import SimpleImageSlider from "react-simple-image-slider";
          < div className="silderRecipe">
          {this.state.images&&this.state.images.length?
           <SimpleImageSlider
-            width={600}
-            height={400}
+            width={'50%'}
+            height={'154%'}
             // style={{ direction: 'rtl' }}
             images={this.state.images}
             showBullets={true}

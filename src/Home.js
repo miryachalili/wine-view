@@ -65,81 +65,10 @@ export default class Home extends React.Component {
     };
 
 
-    return (<>
+    return (
       <div id="rotatingImg">
         <img src={this.state.images[this.state.currentImage]} ></img>
-      </div>      
-      <div  className="recomendedFilter">
-        <div className="recNav">
-              <div className="filtersSelector">
-                <div className="button active" ref={this.bActive} onClick={this.func1}>
-                    <span>חיפוש יין</span> 
-                    <FaWineGlassAlt />
-                 </div>
-                  <div className="button" ref={this.b} onClick={this.func2}>
-                    <span>חיפוש אביזר יין</span>
-                  </div>
-             </div>
-        </div>
-        <div className="recContent first">
-          <form className="wine wineFilter">
-            <div className="column">
-              <div className="wineTypes">
-                <div className="current" onClick={()=>{this.txt.current.style.display==="none"?this.txt.current.style.display="block":this.txt.current.style.display="none"}}>
-                  <div >{this.state.typeProduct}</div>
-                  <FiChevronDown/>
-                </div>
-                <div><ul className="dropDown" ref={this.txt}>
-                {this.state.wines.map(x =><li onClick={()=>{this.setState({typeProduct:x})}}>{x}</li>
-         
-
-                 )}  
-               
-                </ul></div>  
-              </div>  
-            </div>
-            <div className="column">
-              <p >טווח מחירים</p>
-             <p className="amountTotal">
-              <input type="text" value={this.state.max} />
-              <i className="shekel sign icon"></i>
-              <input type="text" value={this.state.min} />
-             </p>
-               <Slider
-                value={this.state.value}
-                onChange={handleChange}
-                min={0}
-                max={600}
-                style={{ color: '#891826' }}
-                valueLabelDisplay="auto"
-                />
-            </div>
-          <div className="column">
-            <div className="checkboxFilter">
-              <FormControlLabel
-                control={<Checkbox /*checked={gilad} onChange={handleChange}*/ name="sale" />}
-                label="במבצע" />
-                <br/>
-              <FormControlLabel
-                control={<Checkbox /*checked={gilad} onChange={handleChange}*/ name="kasher" />}
-                label="כשר" />
-            </div>
-          </div>
-          <div className="column">
-            <button type="submit" className="searchButton"> חיפוש</button>
-          </div>
-          </form>
-
-        </div>
-
-      </div>
-
-
-
-
-
-
-    </>
+      </div>         
     );
   }
 

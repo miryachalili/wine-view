@@ -1,11 +1,16 @@
 
  .recipeFile  { 
-  display: -webkit-flex;
-  margin-left: 30%;
-  height: 70%;
-  margin-right: 23%;
- }
- .recipeFile .listRecipe  img{ 
+    /* height: 70%; */
+    width: 85%;
+    display: flex;
+    margin: 3% 5%;
+    justify-content: space-between;
+}
+.recipeFile .listRecipe{
+  width: 30%;
+}
+
+.recipeFile .listRecipe  img{ 
    width: 45%;
    height: 19%;
    display: -ms-flex;

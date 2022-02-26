@@ -1,7 +1,9 @@
 
 .g{
-margin-right:50%;
-}
+    height: calc(100vh);
+    display: flex;
+    flex-direction: column;
+    align-items: center;}
 input {
     border-bottom-width: 5px;
     border-bottom-color:#891826; 
@@ -40,9 +42,8 @@ button{
     width: 140px;
     padding: 5px;
     margin-left: 4px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-left: 2%;
-
+    cursor: pointer;
 }
 .buttonCity{
      background-color: #891826;;
