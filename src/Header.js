@@ -61,7 +61,6 @@ export default class Header extends React.Component {
     if (this.state.first) {
       this.dynamiSearch();
       this.setState({ first: false })
-
     }
   }
   pay = () => {
@@ -76,6 +75,10 @@ export default class Header extends React.Component {
   closeSignIn = () => {
     this.setState({ openLoginWindow: false })
   }
+  logOut = () => {
+    //צריך לאפס את המשתמש והעגלה
+    // this.props.user
+  }
 
   render() {
     // const style = {
@@ -85,7 +88,7 @@ export default class Header extends React.Component {
     return (
       <div id="app">
         <div id="header">
-          
+
           <div id="logo"> <img src={logo} ></img></div>
           <div className="recomendedFilter">
             <div className="recContent first">
@@ -93,16 +96,17 @@ export default class Header extends React.Component {
                 <div className="column">
                   <div className="wineTypes">
                     <div className="current" onClick={() => { this.txt.current.style.display === "none" ? this.txt.current.style.display = "block" : this.txt.current.style.display = "none" }}>
-                      <div >{this.state.typeProduct}</div>
+                      <div className='type-prod'>{this.state.typeProduct}</div>
                       <FiChevronDown />
                     </div>
-                    <div><ul className="dropDown" ref={this.txt}>
+                    <div className='drop-down'><ul className="dropDown" ref={this.txt}>
                       {this.state.Koshers.map(x => <li onClick={() => { this.setState({ typeProduct: x }) }}>{x}</li>
 
 
                       )}
 
-                    </ul></div>
+                    </ul>
+                    </div>
                   </div>
                 </div>
                 <div className="column">
@@ -117,7 +121,7 @@ export default class Header extends React.Component {
                     onChange={this.handleChange}
                     min={0}
                     max={2000}
-                    style={{color: '#891826', width: '70%', padding: '5px 0px'}}
+                    style={{ color: '#891826', width: '70%', padding: '5px 0px' }}
 
                     valueLabelDisplay="auto"
                   />
@@ -125,7 +129,7 @@ export default class Header extends React.Component {
                 <div className="column">
                   <div className="checkboxFilter">
                     <FormControlLabel
-                      style={{margin: '0px'}}
+                      style={{ margin: '0px' }}
                       control={<Checkbox
                         checked={this.state.isSale}
                         onChange={() => { this.setState({ isSale: !this.state.isSale }); this.searc() }} name="sale" />}
@@ -157,13 +161,13 @@ export default class Header extends React.Component {
             <AiOutlineShoppingCart onClick={() => this.setState({ showOrder: !this.state.showOrder })} />
           </div>
           <div className='login-btn'>
-            {this.props.user ? <p>{this.props.user.FirstName}</p> : <button className='login-btn' onClick={this.openLogin}>הרשמה / התחברות</button>}
+            {this.props.user ? <button className='out' onClick={this.logOut}>{this.props.user.FirstName}</button> : <button className='login-btn' onClick={this.openLogin}>הרשמה / התחברות</button>}
             {/* // <Link className='link' to="/user">הרשמה</Link>} */}
           </div>
         </div>
         {!this.state.first ? <NameContainer names={this.dynamiSearch()} /> : null}
         {this.state.openLoginWindow ? <SignIn closeSignIn={this.closeSignIn.bind(this)}></SignIn> : null}
-        {/* {this.state.searchTerm ? <NameContainer names={this.dynamiSearch()} /> : null} */}
+        {this.state.searchTerm ? <NameContainer names={this.dynamiSearch()} /> : null}
 
         <ul id="nav" >
           {/* <li className="nav1"><Link className="linkall" to="/home">בית</Link></li> */}
@@ -195,7 +199,7 @@ export default class Header extends React.Component {
           <li className="nav1"><Link className='link' to="/questionnaire">שאלון היין</Link> </li>
         </ul>
         {this.state.showOrder ?
-          <div>
+          <div className='order-show'>
             <Cart ordersShow={this.props.ordersShow} closeOrder={this.closeOrder.bind(this)}></Cart>
           </div> : null}
 
