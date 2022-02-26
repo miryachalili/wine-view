@@ -47,6 +47,13 @@ p{
     margin: 2px 0px;
 
 }
+.x-btn {
+    padding: 0px;
+    margin: 0px;
+    width: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
 .header-row{
     margin: 2px;
 }

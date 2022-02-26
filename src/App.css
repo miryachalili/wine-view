@@ -94,6 +94,11 @@ li{
   border: 0px;
   font-size: 16px;
 }
+.out{
+  color: black;
+  background-color: #fff;
+  border: 0px solid #fff;
+}
 .comment__bubble input{
   border-bottom-width: 5px;
   border-bottom-color: #891826;
@@ -187,6 +192,13 @@ li{
   text-align: initial;
   padding: 8px 5px;
   font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.img-search{
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
 }
  #header #logo img{
    width: 100px;

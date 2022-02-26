@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Cart.css";
 import { Container, Row, Col } from 'react-grid-system';
+import Button from '@material-ui/core/Button';
 
 export default class Cart extends React.Component {
     constructor(props) {
@@ -18,6 +19,16 @@ export default class Cart extends React.Component {
     componentWillUnmount() {
 
     }
+    // deleteProd = (id) =>{
+    //     console.log("kk", id)
+    //     this.props.ordersShow.map(x =>{
+    //         if(x.Id == id){
+    //             this.props.ordersShow.splice(x)
+    //         }
+    //     })
+    //     console.log("ffkk", id)
+
+    // }
 
     render() {
         return (
@@ -39,6 +50,11 @@ export default class Cart extends React.Component {
                                     <p>שם פריט</p>
                                 </div>
                             </Col>
+                            {/* <Col sm={1}>
+                                <div className='header-grid'>
+                                    <p>הסר</p>
+                                </div>
+                            </Col> */}
                             <Col sm={2}>
                                 <div className='header-grid'>
                                     <p>סה"כ</p>
@@ -57,6 +73,11 @@ export default class Cart extends React.Component {
                                         <p>{x.Name}</p>
                                     </div>
                                 </Col>
+                                {/* <Col sm={2}>
+                                    <div className='body-col'>
+                                        <p ><Button className='x-btn' onClick={this.deleteProd(x.Id)}>X</Button></p>
+                                    </div>
+                                </Col> */}
                                 <Col sm={2}>
                                     <div className='body-col'>
                                         <p>₪{x.qentity * x.Price}</p>

@@ -200,7 +200,7 @@ export default class Header extends React.Component {
         </ul>
         {this.state.showOrder ?
           <div className='order-show'>
-            <Cart ordersShow={this.props.ordersShow} closeOrder={this.closeOrder.bind(this)}></Cart>
+            <Cart ordersShow={this.props.ordersShow} addToOrder={this.props.addToOrder} closeOrder={this.closeOrder.bind(this)}></Cart>
           </div> : null}
 
       </div>
