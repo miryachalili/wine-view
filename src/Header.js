@@ -161,7 +161,7 @@ export default class Header extends React.Component {
             <AiOutlineShoppingCart onClick={() => this.setState({ showOrder: !this.state.showOrder })} />
           </div>
           <div className='login-btn'>
-            {this.props.user ? <button className='out' onClick={this.logOut}>{this.props.user.FirstName}</button> : <button className='login-btn' onClick={this.openLogin}>הרשמה / התחברות</button>}
+            {this.props.user ? <button className='out' onClick={this.logOut}>{this.props.user.FirstName} / יציאה</button> : <button className='login-btn' onClick={this.openLogin}>הרשמה / התחברות</button>}
             {/* // <Link className='link' to="/user">הרשמה</Link>} */}
           </div>
         </div>
