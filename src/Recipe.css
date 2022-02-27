@@ -9,7 +9,10 @@
 .recipeFile .listRecipe{
   width: 30%;
 }
+.silderRecipe{
+  margin-right: 10%;
 
+}
 .recipeFile .listRecipe  img{ 
    width: 45%;
    height: 19%;

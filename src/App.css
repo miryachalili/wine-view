@@ -184,7 +184,7 @@ li{
     /* transform: translate(-30px, 95px); */
     width: 92%;
 }
-.name-btn {
+.name-btn-d {
   color: black;
   background-color: white;
   border: 0px;
@@ -193,6 +193,17 @@ li{
   padding: 8px 5px;
   font-size: 16px;
   display: flex;
+  align-items: center;
+}
+.name-btn{
+  margin: 5px;
+  background-color: #891826;
+  height: 30px;
+}
+.search-item{
+  display: flex;
+  flex-direction: row;
+  width: 50%;
   align-items: center;
 }
 .img-search{

@@ -36,13 +36,13 @@ import SimpleImageSlider from "react-simple-image-slider";
   }
   render() {
     return (
-      <div>
+      
       <div className="recipeFile">
          < div className="silderRecipe">
          {this.state.images&&this.state.images.length?
           <SimpleImageSlider
-            width={'50%'}
-            height={'154%'}
+            width={'37%'}
+            height={'85%'}
             // style={{ direction: 'rtl' }}
             images={this.state.images}
             showBullets={true}
@@ -62,7 +62,6 @@ import SimpleImageSlider from "react-simple-image-slider";
      
         </div>
     
-      </div>
     );
   }
 }

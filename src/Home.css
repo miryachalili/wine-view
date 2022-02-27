@@ -114,7 +114,7 @@ div {
     display: none;
     position: absolute;
     bottom: 0;
-    transform: translateY(100%) translateX(-50.3%);
+    transform: translateY(95%) translateX(-50.3%);
     left: 58%;
     background-color: #fff;
     text-align: center;
