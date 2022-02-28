@@ -10,11 +10,6 @@ function App() {
   const [productsShow, setProductsShow] = useState([]);
   const [ordersShow, setOrdersShow] = useState([]);
 
-
-
-
-
-
   const addToOrder = (productId, count) => {
     var list = JSON.parse(localStorage.getItem("order")) //קבלת המוצרים בצורת מחרוזת וממיר לאובייקט
     var qentity = 1;
@@ -72,7 +67,7 @@ function App() {
 
   return (
     <div>
-      <Header user={user} products={products} ordersShow={ordersShow} addToOrder={addToOrder} />
+      <Header user={user} setUser={setUser}  products={products} ordersShow={ordersShow} addToOrder={addToOrder} />
       <Routers user={user} setUser={setUser} addToOrder={addToOrder} productsShow={productsShow} setProductsShow={setProductsShow} />
       <EndPage />
     </div>

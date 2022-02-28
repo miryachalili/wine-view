@@ -1,16 +1,16 @@
 
  .recipeFile  { 
     /* height: 70%; */
-    width: 85%;
+    /* width: 85%; */
     display: flex;
-    margin: 3% 5%;
+    /* margin: 3% 5%; */
     justify-content: space-between;
 }
 .recipeFile .listRecipe{
   width: 30%;
 }
 .silderRecipe{
-  margin-right: 10%;
+  margin-right: 25%;
 
 }
 .recipeFile .listRecipe  img{ 
@@ -19,6 +19,7 @@
    display: -ms-flex;
    display: -webkit-flex;
 }
+
 
 .recipeFile .listRecipe  .link{ 
   margin-left: 20px;

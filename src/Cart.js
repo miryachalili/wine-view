@@ -2,7 +2,7 @@ import React from 'react';
 import "./Cart.css";
 import { Container, Row, Col } from 'react-grid-system';
 import Button from '@material-ui/core/Button';
-
+import axios  from 'axios';
 export default class Cart extends React.Component {
     constructor(props) {
         super(props);
@@ -29,6 +29,26 @@ export default class Cart extends React.Component {
     //     console.log("ffkk", id)
 
     // }
+    pay=()=>{
+        if(this.props.user)
+    {
+       const sum= this.props.ordersShow.reduce((partialSum, a) => partialSum + a.qentity * a.Price, 0);
+       if(sum>=500)
+       { 
+         sum-=(sum*0.5);
+         alert( )
+       }
+       axios.post(`http://localhost:62979/api/users?id=${this.props.user.Id}&points=${sum*0.1}`).then(x =>{        
+      
+         //נעשה הנחה של 50% מסך הקנייה ונאפס את הנקודות של המשתמש
+         
+        }).catch(x=>{ })     
+
+    }
+    else{
+      alert("הרשם/התחבר למערכת")
+    }
+    }
 
     render() {
         return (

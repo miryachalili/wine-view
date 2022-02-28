@@ -12,6 +12,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import "./Home.css";
 import SignIn from './SignIn';
 import Cart from './Cart';
+import axios  from 'axios';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react';
 
 export default class Header extends React.Component {
@@ -64,10 +65,31 @@ export default class Header extends React.Component {
     }
   }
   pay = () => {
+    if(this.props.user)
+    {
+       const sum= this.props.ordersShow.reduce((partialSum, a) => partialSum + a.qentity * a.Price, 0);
+       if(sum>=500)
+       { 
+         sum-=(sum*0.5);
+         alert( )
+       }
+       axios.post(`http://localhost:62979/api/users?id=${this.props.user.Id}&points=${sum*0.1}`).then(x =>{        
+      
+         //נעשה הנחה של 50% מסך הקנייה ונאפס את הנקודות של המשתמש
+         
+        }).catch(x=>{ })     
 
+       
+        
+    }
+    else{
+      alert("הרשם/התחבר למערכת")
+    }
+   
   }
   openLogin = () => {
     this.setState({ openLoginWindow: true })
+
   }
   closeOrder = () => {
     this.setState({ showOrder: false })
@@ -78,6 +100,7 @@ export default class Header extends React.Component {
   logOut = () => {
     //צריך לאפס את המשתמש והעגלה
     // this.props.user
+    this.props.setUser(null)
   }
 
   render() {
@@ -166,7 +189,7 @@ export default class Header extends React.Component {
           </div>
         </div>
         {!this.state.first ? <NameContainer names={this.dynamiSearch()} /> : null}
-        {this.state.openLoginWindow ? <SignIn closeSignIn={this.closeSignIn.bind(this)}></SignIn> : null}
+        {this.state.openLoginWindow ? <SignIn  setUser={this.props.setUser} closeSignIn={this.closeSignIn.bind(this)}></SignIn> : null}
         {this.state.searchTerm ? <NameContainer names={this.dynamiSearch()} /> : null}
 
         <ul id="nav" >
@@ -200,7 +223,7 @@ export default class Header extends React.Component {
         </ul>
         {this.state.showOrder ?
           <div className='order-show'>
-            <Cart ordersShow={this.props.ordersShow} addToOrder={this.props.addToOrder} closeOrder={this.closeOrder.bind(this)}></Cart>
+            <Cart user={this.props.user} ordersShow={this.props.ordersShow} addToOrder={this.props.addToOrder} closeOrder={this.closeOrder.bind(this)}></Cart>
           </div> : null}
 
       </div>

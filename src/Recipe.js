@@ -41,13 +41,13 @@ import SimpleImageSlider from "react-simple-image-slider";
          < div className="silderRecipe">
          {this.state.images&&this.state.images.length?
           <SimpleImageSlider
-            width={'37%'}
-            height={'85%'}
+            width={'35%'}
+            height={'100%'}
             // style={{ direction: 'rtl' }}
             images={this.state.images}
             showBullets={true}
             showNavs={true} 
-            />:<img src={img5}/>}
+            />:<img height={'60%'} style={{marginTop:'70px'}} src={img5}/>}
         </div>
         <div className="listRecipe">
            <Link className="link" to="/recipe/1"> <img src={img1} ></img>
